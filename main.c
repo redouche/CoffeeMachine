@@ -1,6 +1,6 @@
 #include <stdio.h>
-
+#include "main.h"
 int main(void) {
-    printf("Hello, World!\n");
+    Coffee Expresso = {"Reda", 10, 2, true, false, true};
     return 0;
 }
