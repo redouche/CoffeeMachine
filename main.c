@@ -9,16 +9,18 @@ int menu() {
     int choice = 0;
     Coffee* myCup = NULL;
 
-    printf("Bonjour ! Quel type de cafe souhaitez vous ?");
-    printf("1: Expresso");
-    printf("2: Capuccino");
-    printf("3: Macciato");
+    printf("Bonjour ! Quel type de cafe souhaitez vous ?\n");
+    printf("1: Expresso\n");
+    printf("2: Capuccino\n");
+    printf("3: Macciato\n");
     scanf("%d", &choice);
     myCup = CoffeeMachine(choice);
+    showCup(*myCup);
     if (myCup != NULL) {
         free(myCup);
         myCup = NULL;
     };
+
 }
 
 Coffee* CoffeeMachine(int client_choice) {
@@ -48,6 +50,10 @@ Coffee* CoffeeMachine(int client_choice) {
             break;
     }
     return Cup;
+}
+
+void showCup(Coffee Cup) {
+    printf("Hmmm, un cafe %s qui coute %.2f euros", Cup.name, Cup.price);
 }
 
 int main(void) {
