@@ -1,16 +1,36 @@
 #include <stdio.h>
 #include "main.h"
+#include "stdlib.h"
+
+enum{EXPRESSO=1, CAPUCCINO, MACCIATO};
 
 int menu() {
-    int choix = 0;
-    printf("Bonjour ! Quel type de café souhaitez vous ?");
+    int choice = 0;
+    printf("Bonjour ! Quel type de cafe souhaitez vous ?");
     printf("1: Expresso");
     printf("2: Capuccino");
     printf("3: Macciato");
-    scanf("%d", &choix);
+    scanf("%d", &choice);
+    CoffeeMachine(choice);
+}
+
+Coffee* CoffeeMachine(int client_choice) {
+    Coffee * Cup = NULL;
+    Cup = malloc(sizeof(Coffee));
+    switch (client_choice) {
+        case EXPRESSO:
+            break;
+        case CAPUCCINO:
+            break;
+        case MACCIATO:
+            break;
+        default:
+            printf("Nous n'avons pas cette article !");
+            break;
+    }
 }
 
 int main(void) {
-    Coffee Expresso = {"Reda", 10, 2, true, false, true};
+    menu();
     return 0;
 }

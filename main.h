@@ -11,4 +11,7 @@ typedef struct {
   bool sugar;
 } Coffee;
 
+Coffee* CoffeeMachine(int client_choice);
+int menu();
+
 #endif //MAIN_H
