@@ -9,14 +9,16 @@ int menu() {
     int choice = 0;
     Coffee* myCup = NULL;
 
-    printf("Serveur - Bonjour ! Quel type de cafe souhaitez vous ?\n");
-    printf("1: Expresso\n");
-    printf("2: Capuccino\n");
-    printf("3: Macciato\n");
-    printf("Votre choix :");
+    printf("Serveur - Bonjour ! Quel type de cafe souhaitez vous ? Voici le menu :\n\n");
+    printf("1 - Expresso\n");
+    printf("2 - Capuccino\n");
+    printf("3 - Macciato\n\n");
+    printf("Votre choix : ");
     scanf("%d", &choice);
     CoffeeMachine(choice, &myCup);
-    showCup(*myCup);
+    if (0 < choice && choice <4) {
+        showCup(*myCup);
+    };
     if (myCup != NULL) {
         free(myCup);
         myCup = NULL;
@@ -44,6 +46,12 @@ void CoffeeMachine(int client_choice, Coffee** myCup) {
             (*myCup)->sugar = true;
             break;
         case MACCIATO:
+            strcpy((*myCup)->name, "Macciato");
+            (*myCup)->volume = TALL;
+            (*myCup)->price = 3.0f;
+            (*myCup)->milk = true;
+            (*myCup)->chocolate = true;
+            (*myCup)->sugar = false;
             break;
         default:
             printf("Nous n'avons pas cette article !");
@@ -52,7 +60,7 @@ void CoffeeMachine(int client_choice, Coffee** myCup) {
 }
 
 void showCup(Coffee Cup) {
-    printf("Vous - Hmmm, un cafe %s qui coute %.2f euros", Cup.name, Cup.price);
+    printf("Vous - Hmmm, un cafe %s qui coute %.2f euros svp !", Cup.name, Cup.price);
 }
 
 int main(void) {

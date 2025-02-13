@@ -11,7 +11,8 @@ typedef struct {
   bool sugar;
 } Coffee;
 
-Coffee* CoffeeMachine(int client_choice);
+void CoffeeMachine(int client_choice, Coffee** myCup);
 int menu();
+void showCup(Coffee Cup);
 
 #endif //MAIN_H
